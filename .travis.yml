@@ -1,0 +1,35 @@
+dist: xenial
+
+language: go
+
+services:
+  - docker
+
+env:
+  global:
+    - RELEASE_TAG="ci"
+    - RC=""
+    - IMG_CNT=$(cat openebs-images.txt openebs-custom-tag-images.txt | grep -v "#" | wc -l)
+    - XC_ARCH=$(go env GOARCH)
+
+jobs:
+  include:
+    - os: linux
+      arch: amd64
+    - os: linux
+      arch: arm64
+    - os: linux
+      arch: ppc64le
+      env:
+        - IMG_CNT=7
+
+script:
+  - cd container-management; 
+  - ./check-openebs-images.sh ${RELEASE_TAG} ${RC}
+  - ./pull-openebs-images.sh ${RELEASE_TAG} ${RC}
+  - docker images --digests
+  - IMG_FOUND=$(docker images --digests | grep -v "TAG" | wc -l)
+  - echo "Found $IMG_FOUND images out of $IMG_CNT"
+  - if [ "$IMG_FOUND" != "$IMG_CNT" ]; then
+      travis_terminate 1;
+    fi
