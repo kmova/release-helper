@@ -15,7 +15,7 @@
 
 usage()
 {
-	echo "Usage: $0 <release tag> [<RC>]"
+	echo "Usage: $0 <release tag> [<RC>] [<ARCH>]"
 	exit 1
 }
 
@@ -27,16 +27,21 @@ fi
 RELEASE_TAG=${1#v}
 
 RC=""
-if [ $# -eq 2 ]; then
+if [ $# -gt 1 ]; then
   RC="-$2"
 fi
 
-XC_ARCH=$(go env GOARCH)
+XC_ARCH=""
+if [ $# -gt 2 ]; then
+  XC_ARCH="-$3"
+fi
+
+echo "Checking for images with TAG(${RELEASE_TAG}${RC}) with arch(${XC_ARCH})"
 
 IMAGE_LIST=$(cat openebs-images.txt | grep -v "#" |tr "\n" " ")
 for IMAGE in $IMAGE_LIST
 do
-  ./check-docker-img-tag.sh "${IMAGE}" "${RELEASE_TAG}${RC}"
+  ./check-docker-img-tag.sh "${IMAGE}${XC_ARCH}" "${RELEASE_TAG}${RC}"
 done
 
 # check images having fixed tags in docker hub
@@ -45,26 +50,7 @@ for IMAGE_TAG in $CUSTOM_TAGGED_LIST
 do
   IMAGE=$(echo $IMAGE_TAG | cut -d':' -f 1)
   TAG=$(echo $IMAGE_TAG | cut -d':' -f 2)
-  ./check-docker-img-tag.sh "${IMAGE}" "${TAG}${RC}"
-done
-
-echo
-echo "Checking for arch(${XC_ARCH}) specific images"
-echo
-
-IMAGE_LIST=$(cat openebs-images.txt | grep -v "#" |tr "\n" " ")
-for IMAGE in $IMAGE_LIST
-do
-  ./check-docker-img-tag.sh "${IMAGE}-${XC_ARCH}" "${RELEASE_TAG}${RC}"
-done
-
-# check images having fixed tags in docker hub
-CUSTOM_TAGGED_LIST=$(cat openebs-custom-tag-images.txt | grep -v "#" |tr "\n" " ")
-for IMAGE_TAG in $CUSTOM_TAGGED_LIST
-do
-  IMAGE=$(echo $IMAGE_TAG | cut -d':' -f 1)
-  TAG=$(echo $IMAGE_TAG | cut -d':' -f 2)
-  ./check-docker-img-tag.sh "${IMAGE}-${XC_ARCH}" "${TAG}${RC}"
+  ./check-docker-img-tag.sh "${IMAGE}${XC_ARCH}" "${TAG}${RC}"
 done
 
 
