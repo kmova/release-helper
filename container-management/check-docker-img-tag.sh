@@ -30,9 +30,9 @@ function docker_tag_exists() {
 # Check the imaage tag in docker hub and prints the message with unicode check mark
 # and cross for success and failure messages
 if docker_tag_exists $IMAGE $TAG; then
-  echo -e "\xE2\x9C\x94 $IMAGE:$TAG exists in docker hub"
+  echo -e "\xE2\x9C\x94 $IMAGE:$TAG"
   exit 0
 else
-  echo -e "\xE2\x9D\x8C $IMAGE:$TAG does not exist in docker hub"
+  echo -e "\xE2\x9D\x8C $IMAGE:$TAG"
   exit 1
 fi

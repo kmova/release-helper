@@ -25,7 +25,6 @@ jobs:
 script:
   - cd container-management; 
   - ./check-openebs-images.sh ${RELEASE_TAG} ${RC}
-  - ./check-openebs-images.sh ${RELEASE_TAG} ${RC} $(go env GOARCH)
   - ./pull-openebs-images.sh ${RELEASE_TAG} ${RC}
   - docker images --digests
   - IMG_FOUND=$(docker images --digests | grep -v "TAG" | wc -l)
@@ -33,4 +32,7 @@ script:
   - if [ "$IMG_FOUND" != "$IMG_CNT" ]; then
       travis_terminate 1;
     fi
+
+after_success:
+  - ./check-openebs-images.sh ${RELEASE_TAG} ${RC} $(go env GOARCH)
   - ./push-openebs-arch-images.sh ${RELEASE_TAG} ${RC}
