@@ -63,7 +63,7 @@ function TagAndPushImage() {
 
 if [ ! -z "${DNAME}" ] && [ ! -z "${DPASS}" ];
 then
-  docker login -u "${DNAME}" -p "${DPASS}";
+  echo "$DPASS" | docker login -u "${DNAME}" --password-stdin;
   # Push ARCH image to docker
   TagAndPushImage ${DIMAGE}-${XC_ARCH}:${DTAG}
 else
@@ -73,7 +73,7 @@ fi;
 # Push ci image to quay.io for security scanning
 if [ ! -z "${QNAME}" ] && [ ! -z "${QPASS}" ];
 then
-  docker login -u "${QNAME}" -p "${QPASS}" quay.io;
+  echo "${QPASS}" | docker login -u "${QNAME}" --password-stdin quay.io;
 
   TagAndPushImage "quay.io/${DIMAGE}-${XC_ARCH}:${DTAG}"
 
