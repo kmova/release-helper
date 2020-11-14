@@ -37,7 +37,6 @@ if [ $# -gt 2 ]; then
 fi
 
 echo "Checking for images with TAG(${RELEASE_TAG}${RC}) with arch(${XC_ARCH})"
-exit 0
 MISSING=0
 
 IMAGE_LIST=$(cat openebs-images.txt | grep -v "#" |tr "\n" " ")
