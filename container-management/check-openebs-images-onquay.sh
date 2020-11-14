@@ -42,7 +42,7 @@ MISSING=0
 IMAGE_LIST=$(cat openebs-images.txt | grep -v "#" |tr "\n" " ")
 for IMAGE in $IMAGE_LIST
 do
-  ./check-docker-img-tag.sh "${IMAGE}${XC_ARCH}" "${RELEASE_TAG}${RC}"
+  ./check-quay-img-tag.sh "${IMAGE}${XC_ARCH}" "${RELEASE_TAG}${RC}"
   if [ $? -ne 0 ]; then let "MISSING++"; fi
 done
 
@@ -52,8 +52,10 @@ for IMAGE_TAG in $CUSTOM_TAGGED_LIST
 do
   IMAGE=$(echo $IMAGE_TAG | cut -d':' -f 1)
   TAG=$(echo $IMAGE_TAG | cut -d':' -f 2)
-  ./check-docker-img-tag.sh "${IMAGE}${XC_ARCH}" "${TAG}${RC}"
+  ./check-quay-img-tag.sh "${IMAGE}${XC_ARCH}" "${TAG}${RC}"
   if [ $? -ne 0 ]; then let "MISSING++"; fi
 done
 
 exit $MISSING
+
+
