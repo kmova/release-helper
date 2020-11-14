@@ -8,7 +8,7 @@ services:
 env:
   global:
     - RELEASE_TAG="v2.3.0"
-    - RC="RC2"
+    - RC="-"
     - IMG_CNT=$(cat openebs-images.txt openebs-custom-tag-images.txt | grep -v "#" | wc -l)
 
 jobs:
