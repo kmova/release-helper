@@ -38,4 +38,5 @@ after_success:
   - ./check-openebs-images-onquay.sh ${RELEASE_TAG} ${RC} 
   - ./check-openebs-images-onquay.sh ${RELEASE_TAG} ${RC} $(go env GOARCH)
   - ./push-openebs-arch-images.sh ${RELEASE_TAG} ${RC}
-  - docker images --digests | sort
+  - ./pull-openebs-arch-images.sh ${RELEASE_TAG} ${RC}
+  - docker images --digests | awk '{print $3 " --> " $1":"$2}' | grep sha256 | sort 
