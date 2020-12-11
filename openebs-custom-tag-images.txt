@@ -18,8 +18,9 @@ openebs/zfs-driver:ci
 openebs/node-disk-manager:ci
 openebs/node-disk-operator:ci
 openebs/node-disk-exporter:ci
-#openebs/mayastor:0.3.0
-#openebs/mayastor-csi:0.3.0
-#openebs/moac:0.3.0
-#openebs/rawfile-localpv:0.4.0
-#openebs/monitor-pv:0.2.0
+#openebs/dynamic-nfs-provisioner:ci
+#openebs/mayastor:ci
+#openebs/mayastor-csi:ci
+#openebs/moac:ci
+#openebs/rawfile-localpv:ci
+#openebs/monitor-pv:ci

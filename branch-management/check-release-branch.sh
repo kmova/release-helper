@@ -40,10 +40,11 @@ done
 #OpenEBS Release repositories with non-mainstream 
 #branching convention
 ./git-get-branch openebs/linux-utils master
-./git-get-branch openebs/zfs-localpv v1.1.x
+./git-get-branch openebs/zfs-localpv v1.2.x
 ./git-get-branch openebs/node-disk-manager v1.0.x
-./git-get-branch openebs/monitor-pv master
-./git-get-branch openebs/Mayastor master
+./git-get-branch openebs/Mayastor develop
 ./git-get-branch openebs/rawfile-localpv master
+./git-get-branch openebs/dynamic-nfs-provisioner develop
 ./git-get-branch openebs/jiva-operator master
 ./git-get-branch openebs/jiva-csi master
+./git-get-branch openebs/monitor-pv master
