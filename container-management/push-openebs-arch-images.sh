@@ -31,7 +31,7 @@ fi
 RELEASE_TAG=${1#v}
 
 RC=""
-if [ $# -eq 2 ]; then
+if [ $# -eq 2 ] && [ "$2" != "-" ]; then
   RC="-$2"
 fi
 
