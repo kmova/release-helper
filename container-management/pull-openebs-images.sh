@@ -33,7 +33,7 @@ RELEASE_TAG=${1#v}
 XC_ARCH=$(go env GOARCH)
 
 RC=""
-if [ $# -eq 2 ]; then
+if [ $# -eq 2 ] && [ "$2" != "-" ]; then
   RC="-$2"
 fi
 
