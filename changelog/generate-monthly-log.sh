@@ -63,7 +63,7 @@ change_log()
   git pull
   git checkout $2
   git pull
-  git log --pretty=format:'-TPL- %s %cs (%h) (@%an)' --date=short  --since="15 oct 2020"  >> ../../${CHANGE_LOG_REPO}
+  git log --pretty=format:'-TPL- %s %cs (%h) (@%an)' --date=short  --since="15 dec 2020"  >> ../../${CHANGE_LOG_REPO}
   git log --pretty=format:'(@%an)' --date=short  --since="15 oct 2020"  >> ../../${COMMITTER_LOG}
   cd ../..
   sed -i '' -e "s/-TPL-/- [$1] /g" ${CHANGE_LOG_REPO}
@@ -89,7 +89,7 @@ done
 #branching convention
 change_log linux-utils master
 change_log node-disk-manager v1.0.x
-change_log zfs-localpv v1.1.x
+change_log zfs-localpv v1.2.x
 change_log e2e-tests master
 change_log openebs-docs master
 change_log openebs master
@@ -150,6 +150,10 @@ committer_map()
   sed -i '' -e 's/@Mikhail Tcymbaliuk/@mtzaurus/g' ${FILE}
   sed -i '' -e 's/@Michael Tsymbalyuk/@mtzaurus/g' ${FILE}
   sed -i '' -e 's/@Paul Yoong/@paulyoong/g' ${FILE}
+  sed -i '' -e 's/@Antonin Kral/@bobek/g' ${FILE}
+  sed -i '' -e 's/@Arne Rusek/@arne-rusek/g' ${FILE}
+  sed -i '' -e 's/@Giridharaprasad/@gprasath/g' ${FILE}
+  sed -i '' -e 's/@nareshdesh/@nareshdesh/g' ${FILE}
 
   #Contributors -  Community Bridge
   sed -i '' -e 's/@Harsh Thakur/@harshthakur9030/g' ${FILE} 
@@ -214,7 +218,7 @@ committer_map()
   sed -i '' -e 's/@NightsWatch/@silentred/g' ${FILE}
   sed -i '' -e 's/@Tom Marsh/@tjoshum/g' ${FILE}
   sed -i '' -e 's/@Waqar Ahmed/@sonicaj/g' ${FILE}
-  sed -i '' -e's/@Akın Özer/@akin-ozer/g' ${FILE}
+  sed -i '' -e 's/@Akın Özer/@akin-ozer/g' ${FILE}
   sed -i '' -e 's/@Alex Perez-Pujol/@alexppg/g' ${FILE}
   sed -i '' -e 's/@anupriya0703/@anupriya0703/g' ${FILE}
   sed -i '' -e 's/@Ben Hundley/@FestivalBobcats/g' ${FILE}
@@ -227,6 +231,11 @@ committer_map()
   sed -i '' -e 's/@Eugenio A. Naselli/@shock0572/g' ${FILE}
   sed -i '' -e 's/@Mateusz Gozdek/@invidian/g' ${FILE}
   sed -i '' -e 's/@filip-lebiecki/@filip-lebiecki/g' ${FILE}
+  sed -i '' -e 's/@FeynmanZhou/@FeynmanZhou/g' ${FILE}
+  sed -i '' -e 's/@Nofar Spalter/@Nofar Spalter/g' ${FILE}
+  sed -i '' -e 's/@Richard Arends/@Mosibi/g' ${FILE}
+  sed -i '' -e 's/@Sebastien Dionne/@survivant/g' ${FILE}
+  sed -i '' -e 's/@ajeet_rai/@ajeet_rai/g' ${FILE}
 
   FILE=""
 }

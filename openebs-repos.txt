@@ -29,6 +29,7 @@ external-storage
 upgrade
 m-exporter
 dynamic-localpv-provisioner
+openebs-k8s-provisioner
 #dynamic-nfs-provisioner
 #zfs-localpv
 #monitor-pv
