@@ -7,7 +7,7 @@ services:
 
 env:
   global:
-    - RELEASE_TAG="ci"
+    - RELEASE_TAG="2.5.0"
     - RC="-"
     - IMG_CNT=$(cat openebs-images.txt openebs-custom-tag-images.txt | grep -v "#" | wc -l)
 
