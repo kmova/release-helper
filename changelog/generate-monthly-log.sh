@@ -64,7 +64,7 @@ change_log()
   git checkout $2
   git pull
   git log --pretty=format:'-TPL- %s %cs (%h) (@%an)' --date=short  --since="15 dec 2020"  >> ../../${CHANGE_LOG_REPO}
-  git log --pretty=format:'(@%an)' --date=short  --since="15 oct 2020"  >> ../../${COMMITTER_LOG}
+  git log --pretty=format:'(@%an)' --date=short  --since="15 dec 2020"  >> ../../${COMMITTER_LOG}
   cd ../..
   sed -i '' -e "s/-TPL-/- [$1] /g" ${CHANGE_LOG_REPO}
   cat ${CHANGE_LOG_REPO} | sort  >> ${CHANGE_LOG}
@@ -88,8 +88,8 @@ done
 #OpenEBS Release repositories with non-mainstream 
 #branching convention
 change_log linux-utils master
-change_log node-disk-manager v1.0.x
-change_log zfs-localpv v1.2.x
+change_log node-disk-manager v1.1.x
+change_log zfs-localpv v1.3.x
 change_log e2e-tests master
 change_log openebs-docs master
 change_log openebs master
@@ -100,6 +100,8 @@ change_log charts master
 change_log charts gh-pages
 change_log website refactor-to-ghost-and-gatsby
 change_log performance-benchmark master
+change_log dynamic-nfs-provisioner master
+change_log lvm-localpv master
 
 
 committer_map()
@@ -146,6 +148,7 @@ committer_map()
   sed -i '' -e 's/@yannis218/@yannis218/g' ${FILE}
   sed -i '' -e 's/@Shashank Ranjan/@shashank855/g' ${FILE}
   sed -i '' -e 's/@Tiago Castro/@tiagolobocastro/g' ${FILE}
+  sed -i '' -e 's/@Ana Hobden/@Hoverbear/g' ${FILE}
   sed -i '' -e 's/@Mehran Kholdi/@SeMeKh/g' ${FILE}
   sed -i '' -e 's/@Mikhail Tcymbaliuk/@mtzaurus/g' ${FILE}
   sed -i '' -e 's/@Michael Tsymbalyuk/@mtzaurus/g' ${FILE}
@@ -154,6 +157,8 @@ committer_map()
   sed -i '' -e 's/@Arne Rusek/@arne-rusek/g' ${FILE}
   sed -i '' -e 's/@Giridharaprasad/@gprasath/g' ${FILE}
   sed -i '' -e 's/@nareshdesh/@nareshdesh/g' ${FILE}
+  sed -i '' -e 's/@mahao/@allenhaozi/g' ${FILE}
+  sed -i '' -e 's/@praveengt/@praveengt/g' ${FILE}
 
   #Contributors -  Community Bridge
   sed -i '' -e 's/@Harsh Thakur/@harshthakur9030/g' ${FILE} 
@@ -195,6 +200,7 @@ committer_map()
   sed -i '' -e 's/@Julian/@ItsJulian/g' ${FILE}
   sed -i '' -e 's/@Sumindar/@Sumindar/g' ${FILE}
   sed -i '' -e 's/@Devdutt Shenoi/@de-sh/g' ${FILE}
+  sed -i '' -e 's/@Anand prabhakar/@anandprabhakar0507/g' ${FILE}
 
   #Contributors -  Community
   sed -i '' -e 's/@Sumit Lalwani/@slalwani97/g' ${FILE}
@@ -236,6 +242,7 @@ committer_map()
   sed -i '' -e 's/@Richard Arends/@Mosibi/g' ${FILE}
   sed -i '' -e 's/@Sebastien Dionne/@survivant/g' ${FILE}
   sed -i '' -e 's/@ajeet_rai/@ajeet_rai/g' ${FILE}
+  sed -i '' -e 's/@kaushikp13/@kaushikp13/g' ${FILE}
 
   FILE=""
 }

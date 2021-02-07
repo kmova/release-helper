@@ -32,6 +32,7 @@ dynamic-localpv-provisioner
 openebs-k8s-provisioner
 #dynamic-nfs-provisioner
 #zfs-localpv
+#lvm-localpv
 #monitor-pv
 #Mayastor
 #jiva-operator
