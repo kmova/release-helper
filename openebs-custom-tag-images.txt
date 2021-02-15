@@ -18,7 +18,7 @@ openebs/zfs-driver:1.4.0
 openebs/node-disk-manager:1.2.0
 openebs/node-disk-operator:1.2.0
 openebs/node-disk-exporter:1.2.0
-openebs/dynamic-nfs-provisioner:0.2.0
+openebs/provisioner-nfs-amd64:0.1.0
 openebs/lvm-driver:0.2.0
 #openebs/mayastor:ci
 #openebs/mayastor-csi:ci
