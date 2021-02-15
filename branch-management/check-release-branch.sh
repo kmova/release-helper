@@ -41,7 +41,7 @@ done
 #branching convention
 ./git-get-branch openebs/linux-utils master
 ./git-get-branch openebs/zfs-localpv v1.4.x
-./git-get-branch openebs/lvm-localpv develop
+./git-get-branch openebs/lvm-localpv master
 ./git-get-branch openebs/node-disk-manager v1.2.x
 ./git-get-branch openebs/Mayastor develop
 ./git-get-branch openebs/rawfile-localpv master
