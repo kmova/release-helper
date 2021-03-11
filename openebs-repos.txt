@@ -30,12 +30,11 @@ upgrade
 m-exporter
 dynamic-localpv-provisioner
 openebs-k8s-provisioner
+jiva-operator
+#lvm-localpv
 #dynamic-nfs-provisioner
 #zfs-localpv
-#lvm-localpv
 #monitor-pv
 #Mayastor
-#jiva-operator
-#jiva-csi
 
 
