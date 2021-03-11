@@ -62,3 +62,5 @@ do
   TAG=$(echo $FIMG | cut -d':' -f 2)
   multi-arch-pull "${IMAGE}":"${TAG}${RC}"
 done
+
+echo
