@@ -63,8 +63,8 @@ change_log()
   git pull
   git checkout $2
   git pull
-  git log --pretty=format:'-TPL- %s %cs (%h) (@%an)' --date=short  --since="15 jan 2021"  >> ../../${CHANGE_LOG_REPO}
-  git log --pretty=format:'(@%an)' --date=short  --since="15 jan 2021"  >> ../../${COMMITTER_LOG}
+  git log --pretty=format:'-TPL- %s %cs (%h) (@%an)' --date=short  --since="15 feb 2021"  >> ../../${CHANGE_LOG_REPO}
+  git log --pretty=format:'(@%an)' --date=short  --since="15 feb 2021"  >> ../../${COMMITTER_LOG}
   cd ../..
   sed -i '' -e "s/-TPL-/- [$1] /g" ${CHANGE_LOG_REPO}
   cat ${CHANGE_LOG_REPO} | sort  >> ${CHANGE_LOG}
@@ -247,6 +247,15 @@ committer_map()
   sed -i '' -e 's/@Yashpal/@iyashu/g' ${FILE}
   sed -i '' -e 's/@Luiz Carlos Faria/@luizcarlosfaria/g' ${FILE}
   #sed -i '' -e 's/@Hanieh Marvi/@Hanieh Marvi/g' ${FILE}
+  sed -i '' -e 's/@Rahul krishnan R A/@rahulkrishnanfs/g' ${FILE}
+  sed -i '' -e 's/@Mike Terhar/@mterhar/g' ${FILE}
+  sed -i '' -e 's/@Abhishek Agarwal/@Ab-hishek/g' ${FILE}
+  sed -i '' -e 's/@Abhranil Chatterjee/@abhranilc/g' ${FILE}
+  sed -i '' -e 's/@Armel Soro/@rm3l/g' ${FILE}
+  sed -i '' -e 's/@knutole/@knutole/g' ${FILE}
+  sed -i '' -e 's/@Aisuko/@Aisuko/g' ${FILE}
+  sed -i '' -e 's/@cospotato/@cospotato/g' ${FILE}
+  sed -i '' -e 's/@Simon Smith/@si458/g' ${FILE}
 
   FILE=""
 }

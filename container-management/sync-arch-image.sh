@@ -77,10 +77,10 @@ then
 
   TagAndPushImage "quay.io/${DIMAGE}-${XC_ARCH}:${DTAG}"
 
-  if [ "amd64" == "${XC_ARCH}" ] ;
-  then
-    TagAndPushImage "quay.io/${DIMAGE}:${DTAG}"
-  fi;
+  #if [ "amd64" == "${XC_ARCH}" ] ;
+  #then
+  #  TagAndPushImage "quay.io/${DIMAGE}:${DTAG}"
+  #fi;
 else
   echo "No docker credentials provided. Skip uploading ${DIMAGE}-${XC_ARCH}:${DTAG} to quay";
 fi;
