@@ -37,5 +37,4 @@ openebs/cstor-pool-manager
 openebs/cstor-webhook
 openebs/upgrade
 openebs/migrate
-#openebs/jiva-csi
-#openebs/jiva-operator-amd64
+openebs/jiva-operator

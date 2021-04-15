@@ -63,8 +63,8 @@ change_log()
   git pull
   git checkout $2
   git pull
-  git log --pretty=format:'-TPL- %s %cs (%h) (@%an)' --date=short  --since="15 dec 2020"  >> ../../${CHANGE_LOG_REPO}
-  git log --pretty=format:'(@%an)' --date=short  --since="15 dec 2020"  >> ../../${COMMITTER_LOG}
+  git log --pretty=format:'-TPL- %s %cs (%h) (@%an)' --date=short  --since="15 feb 2021"  >> ../../${CHANGE_LOG_REPO}
+  git log --pretty=format:'(@%an)' --date=short  --since="15 feb 2021"  >> ../../${COMMITTER_LOG}
   cd ../..
   sed -i '' -e "s/-TPL-/- [$1] /g" ${CHANGE_LOG_REPO}
   cat ${CHANGE_LOG_REPO} | sort  >> ${CHANGE_LOG}
@@ -88,8 +88,9 @@ done
 #OpenEBS Release repositories with non-mainstream 
 #branching convention
 change_log linux-utils master
-change_log node-disk-manager v1.1.x
-change_log zfs-localpv v1.3.x
+change_log node-disk-manager v1.3.x
+change_log zfs-localpv v1.5.x
+change_log lvm-localpv v0.3.x
 change_log e2e-tests master
 change_log openebs-docs master
 change_log openebs master
@@ -100,8 +101,7 @@ change_log charts master
 change_log charts gh-pages
 change_log website refactor-to-ghost-and-gatsby
 change_log performance-benchmark master
-change_log dynamic-nfs-provisioner master
-change_log lvm-localpv master
+change_log dynamic-nfs-provisioner develop
 
 
 committer_map()
@@ -243,6 +243,19 @@ committer_map()
   sed -i '' -e 's/@Sebastien Dionne/@survivant/g' ${FILE}
   sed -i '' -e 's/@ajeet_rai/@ajeet_rai/g' ${FILE}
   sed -i '' -e 's/@kaushikp13/@kaushikp13/g' ${FILE}
+  sed -i '' -e 's/@Aditya Jain/@Z0Marlin/g' ${FILE}
+  sed -i '' -e 's/@Yashpal/@iyashu/g' ${FILE}
+  sed -i '' -e 's/@Luiz Carlos Faria/@luizcarlosfaria/g' ${FILE}
+  #sed -i '' -e 's/@Hanieh Marvi/@Hanieh Marvi/g' ${FILE}
+  sed -i '' -e 's/@Rahul krishnan R A/@rahulkrishnanfs/g' ${FILE}
+  sed -i '' -e 's/@Mike Terhar/@mterhar/g' ${FILE}
+  sed -i '' -e 's/@Abhishek Agarwal/@Ab-hishek/g' ${FILE}
+  sed -i '' -e 's/@Abhranil Chatterjee/@abhranilc/g' ${FILE}
+  sed -i '' -e 's/@Armel Soro/@rm3l/g' ${FILE}
+  sed -i '' -e 's/@knutole/@knutole/g' ${FILE}
+  sed -i '' -e 's/@Aisuko/@Aisuko/g' ${FILE}
+  sed -i '' -e 's/@cospotato/@cospotato/g' ${FILE}
+  sed -i '' -e 's/@Simon Smith/@si458/g' ${FILE}
 
   FILE=""
 }
@@ -254,3 +267,4 @@ committer_map ${COMMITTER_LOG}
 sed -i '' -e 's/)(/),(/g' ${COMMITTER_LOG}
 sed -i '' -e $'s/,/\\\n/g' ${COMMITTER_LOG}
 sort ${COMMITTER_LOG} | uniq
+
