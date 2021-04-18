@@ -20,7 +20,7 @@ jobs:
     - os: linux
       arch: ppc64le
       env:
-        - IMG_CNT=7
+        - IMG_CNT=8
 
 script:
   - cd container-management; 
