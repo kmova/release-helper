@@ -63,8 +63,8 @@ change_log()
   git pull
   git checkout $2
   git pull
-  git log --pretty=format:'-TPL- %s %cs (%h) (@%an)' --date=short  --since="15 feb 2021"  >> ../../${CHANGE_LOG_REPO}
-  git log --pretty=format:'(@%an)' --date=short  --since="15 feb 2021"  >> ../../${COMMITTER_LOG}
+  git log --pretty=format:'-TPL- %s %cs (%h) (@%an)' --date=short  --since="15 mar 2021"  >> ../../${CHANGE_LOG_REPO}
+  git log --pretty=format:'(@%an)' --date=short  --since="15 mar 2021"  >> ../../${COMMITTER_LOG}
   cd ../..
   sed -i '' -e "s/-TPL-/- [$1] /g" ${CHANGE_LOG_REPO}
   cat ${CHANGE_LOG_REPO} | sort  >> ${CHANGE_LOG}
@@ -88,9 +88,10 @@ done
 #OpenEBS Release repositories with non-mainstream 
 #branching convention
 change_log linux-utils master
-change_log node-disk-manager v1.3.x
-change_log zfs-localpv v1.5.x
-change_log lvm-localpv v0.3.x
+change_log node-disk-manager v1.4.x
+change_log zfs-localpv v1.6.x
+change_log lvm-localpv v0.4.x
+change_log device-localpv develop
 change_log e2e-tests master
 change_log openebs-docs master
 change_log openebs master
@@ -256,6 +257,8 @@ committer_map()
   sed -i '' -e 's/@Aisuko/@Aisuko/g' ${FILE}
   sed -i '' -e 's/@cospotato/@cospotato/g' ${FILE}
   sed -i '' -e 's/@Simon Smith/@si458/g' ${FILE}
+  sed -i '' -e 's/@James Pedersen/@watcher00090/g' ${FILE}
+  sed -i '' -e 's/@iyashu Choudhary/@iyashu/g' ${FILE}
 
   FILE=""
 }
