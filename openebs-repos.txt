@@ -14,7 +14,7 @@
 #
 # List of OpenEBS Repositories with branches
 #
-api
+#api
 #linux-utils
 #node-disk-manager
 cstor
@@ -25,7 +25,6 @@ cstor-csi
 cstor-operators
 jiva
 maya
-external-storage
 upgrade
 m-exporter
 dynamic-localpv-provisioner
@@ -38,5 +37,8 @@ jiva-operator
 #dynamic-nfs-provisioner
 #monitor-pv
 #Mayastor
+#mayastor-control-plane
+#monitoring
+#openebsctl
 
 
