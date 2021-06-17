@@ -63,8 +63,8 @@ change_log()
   git pull
   git checkout $2
   git pull
-  git log --pretty=format:'-TPL- %s %cs (%h) (@%an)' --date=short  --since="15 apr 2021"  >> ../../${CHANGE_LOG_REPO}
-  git log --pretty=format:'(@%an)' --date=short  --since="15 apr 2021"  >> ../../${COMMITTER_LOG}
+  git log --pretty=format:'-TPL- %s %cs (%h) (@%an)' --date=short  --since="15 may 2021"  >> ../../${CHANGE_LOG_REPO}
+  git log --pretty=format:'(@%an)' --date=short  --since="15 may 2021"  >> ../../${COMMITTER_LOG}
   cd ../..
   sed -i '' -e "s/-TPL-/- [$1] /g" ${CHANGE_LOG_REPO}
   cat ${CHANGE_LOG_REPO} | sort  >> ${CHANGE_LOG}
@@ -88,9 +88,10 @@ done
 #OpenEBS Release repositories with non-mainstream 
 #branching convention
 change_log linux-utils master
-change_log node-disk-manager v1.4.x
-change_log zfs-localpv v1.7.x
-change_log lvm-localpv v0.5.x
+change_log node-disk-manager v1.5.x
+change_log zfs-localpv v1.8.x
+change_log lvm-localpv v0.6.x
+change_log dynamic-nfs-provisioner v0.4.x
 change_log device-localpv develop
 change_log e2e-tests master
 change_log openebs-docs master
@@ -98,13 +99,13 @@ change_log openebs master
 change_log monitor-pv master
 change_log Mayastor develop
 change_log monitoring develop
-change_log openebsctl master
+change_log openebsctl develop
 change_log rawfile-localpv master
 change_log charts master
 change_log charts gh-pages
 change_log website refactor-to-ghost-and-gatsby
+change_log website revamp-3.0
 change_log performance-benchmark master
-change_log dynamic-nfs-provisioner develop
 
 
 committer_map()
@@ -172,10 +173,13 @@ committer_map()
   #Contributors - via CNCF BugBash 2021
   sed -i '' -e 's/@Atibhi Agrawal/@asquare14/g' ${FILE}
   sed -i '' -e 's/@arcolife/@arcolife/g' ${FILE}
-  sed -i '' -e 's/@JanKoehnlein/@JanKoehnlein/g' ${FILE}
+  sed -i '' -e 's/@Jan Koehnlein/@JanKoehnlein/g' ${FILE}
   sed -i '' -e 's/@Nisarg Shah/@nisarg1499/g' ${FILE}
   sed -i '' -e 's/@Rahul Grover/@rahulgrover99/g' ${FILE}
   sed -i '' -e 's/@Sonia Singla/@soniasingla/g' ${FILE}
+  sed -i '' -e 's/@Sonia Singla/@soniasingla/g' ${FILE}
+  sed -i '' -e 's/@Sreehari Mohan/@sreeharimohan/g' ${FILE}
+  sed -i '' -e 's/@pankaj892/@pankaj892/g' ${FILE}
 
   #Contributors - via Hacktoberfest 2020
   sed -i '' -e 's/@Naveenkhasyap/@Naveenkhasyap/g' ${FILE}
@@ -278,6 +282,14 @@ committer_map()
   sed -i '' -e 's/@Sahil Raja/@rajaSahil/g' ${FILE}
   sed -i '' -e 's/@satyapriyamishra222/@satyapriyamishra222/g' ${FILE}
   sed -i '' -e 's/@Ashish Jain/@is-ashish/g' ${FILE}
+  sed -i '' -e 's/@AVRahul/@AVRahul/g' ${FILE}
+  sed -i '' -e 's/@Atharex/@Atharex/g' ${FILE}
+  sed -i '' -e 's/@Pallavi/@Pallavi-PH/g' ${FILE}
+  sed -i '' -e 's/@Rakesh PR/@rakeshPRaghu/g' ${FILE}
+  sed -i '' -e 's/@Rakesh Raghu/@rakeshPRaghu/g' ${FILE}
+  sed -i '' -e 's/@Sanjay Nathani/@Sanjay1611/g' ${FILE}
+  sed -i '' -e 's/@Satyapriya Mishra/@satyapriyamishra222/g' ${FILE}
+  sed -i '' -e 's/@Shovan Maity/@shovanmaity/g' ${FILE}
 
   FILE=""
 }
