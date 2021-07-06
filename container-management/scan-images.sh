@@ -57,6 +57,7 @@ trivy_scan()
   if [[ $IMG =~ ^# ]]; then
     echo "Skipping $IMG"
   else
+    docker pull $IMG
     ./trivy -q --exit-code 1 --severity CRITICAL --no-progress $IMG
     if [ $? -ne 0 ]; then
       echo "Failed scanning $IMG"
@@ -68,46 +69,19 @@ trivy_scan()
   fi
 }
 
-quay_trivy_scan()
-{
-  IMG=$1
-  if [[ $IMG =~ ^# ]]; then
-    echo "Skipping quay scan for $IMG"
-  else
-    trivy_scan quay.io/${IMG}
-  fi
-}
 
 OIMGLIST=$(cat  openebs-images.txt | grep -v "#" |tr "\n" " ")
 for OIMG in $OIMGLIST
 do
   trivy_scan $OIMG:$RELEASE_TAG
-  quay_trivy_scan $OIMG:$RELEASE_TAG
   echo
 done
 
 #Images that do not follow the openebs release version
-FIMGLIST=$(cat  openebs-fixed-tags.txt | grep -v "#" |tr "\n" " ")
+FIMGLIST=$(cat  openebs-custom-tag-images.txt | grep -v "#" |tr "\n" " ")
 for FIMG in $FIMGLIST
 do
   trivy_scan ${FIMG}
-  quay_trivy_scan ${FIMG}
-  echo
-done
-
-#ARM Images
-AIMGLIST=$(cat  openebs-arm-images.txt | grep -v "#" |tr "\n" " ")
-for AIMG in $AIMGLIST
-do
-  trivy_scan ${AIMG}:$RELEASE_TAG
-  quay_trivy_scan ${AIMG}:$RELEASE_TAG
-done
-
-#Multi arch images that are only available from docker
-MIMGLIST=$(cat  openebs-multiarch-tags.txt | grep -v "#" |tr "\n" " ")
-for MIMG in $MIMGLIST
-do
-  trivy_scan ${MIMG}
   echo
 done
 
