@@ -14,15 +14,15 @@
 #
 #List of custom tagged images
 #
-openebs/zfs-driver:ci
-openebs/node-disk-manager:ci
-openebs/node-disk-operator:ci
-openebs/node-disk-exporter:ci
-openebs/lvm-driver:ci
-openebs/device-driver:ci
-openebs/rawfile-localpv:ci
-openebs/provisioner-nfs:ci
-openebs/nfs-server-alpine:ci
+openebs/zfs-driver:1.9.0
+openebs/node-disk-manager:1.6.0
+openebs/node-disk-operator:1.6.0
+openebs/node-disk-exporter:1.6.0
+openebs/lvm-driver:0.7.0
+openebs/device-driver:0.4.0
+openebs/rawfile-localpv:0.5.0
+openebs/provisioner-nfs:0.5.0
+openebs/nfs-server-alpine:0.5.0
 #openebs/mayastor:ci
 #openebs/mayastor-csi:ci
 #openebs/moac:ci
