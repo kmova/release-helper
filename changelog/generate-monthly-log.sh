@@ -63,8 +63,8 @@ change_log()
   git pull
   git checkout $2
   git pull
-  git log --pretty=format:'-TPL- %s %cs (%h) (@%an)' --date=short  --since="15 may 2021"  >> ../../${CHANGE_LOG_REPO}
-  git log --pretty=format:'(@%an)' --date=short  --since="15 may 2021"  >> ../../${COMMITTER_LOG}
+  git log --pretty=format:'-TPL- %s %cs (%h) (@%an)' --date=short  --since="15 jun 2021"  >> ../../${CHANGE_LOG_REPO}
+  git log --pretty=format:'(@%an)' --date=short  --since="15 jun 2021"  >> ../../${COMMITTER_LOG}
   cd ../..
   sed -i '' -e "s/-TPL-/- [$1] /g" ${CHANGE_LOG_REPO}
   cat ${CHANGE_LOG_REPO} | sort  >> ${CHANGE_LOG}
@@ -88,10 +88,10 @@ done
 #OpenEBS Release repositories with non-mainstream 
 #branching convention
 change_log linux-utils master
-change_log node-disk-manager v1.5.x
-change_log zfs-localpv v1.8.x
-change_log lvm-localpv v0.6.x
-change_log dynamic-nfs-provisioner v0.4.x
+change_log node-disk-manager v1.6.x
+change_log zfs-localpv v1.9.x
+change_log lvm-localpv v0.7.x
+change_log dynamic-nfs-provisioner develop
 change_log device-localpv develop
 change_log e2e-tests master
 change_log openebs-docs master
@@ -283,6 +283,7 @@ committer_map()
   sed -i '' -e 's/@satyapriyamishra222/@satyapriyamishra222/g' ${FILE}
   sed -i '' -e 's/@Ashish Jain/@is-ashish/g' ${FILE}
   sed -i '' -e 's/@AVRahul/@AVRahul/g' ${FILE}
+  sed -i '' -e 's/@A V RAHUL/@AVRahul/g' ${FILE}
   sed -i '' -e 's/@Atharex/@Atharex/g' ${FILE}
   sed -i '' -e 's/@Pallavi/@Pallavi-PH/g' ${FILE}
   sed -i '' -e 's/@Rakesh PR/@rakeshPRaghu/g' ${FILE}
@@ -290,6 +291,11 @@ committer_map()
   sed -i '' -e 's/@Sanjay Nathani/@Sanjay1611/g' ${FILE}
   sed -i '' -e 's/@Satyapriya Mishra/@satyapriyamishra222/g' ${FILE}
   sed -i '' -e 's/@Shovan Maity/@shovanmaity/g' ${FILE}
+  sed -i '' -e 's/@Suraj Deshmukh/@surajssd/g' ${FILE}
+  sed -i '' -e 's/@Roland/@RolandMa1986/g' ${FILE}
+  sed -i '' -e 's/@Josh Cox/@joshuacox/g' ${FILE}
+  sed -i '' -e 's/@Hugo Renard/@hrenard/g' ${FILE}
+  sed -i '' -e 's/@Vishnu Attur/@avishnu/g' ${FILE}
 
   FILE=""
 }
