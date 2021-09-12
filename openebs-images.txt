@@ -12,29 +12,27 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# List of OpenEBS AMD64 images
+# List of OpenEBS images
 #
+# Local PV hostpath images
 openebs/linux-utils
+openebs/provisioner-localpv
+# cStor images
 openebs/cstor-pool
 openebs/cstor-istgt
-openebs/jiva
-openebs/m-apiserver
-openebs/cstor-pool-mgmt
-openebs/cstor-volume-mgmt
-openebs/m-exporter
-openebs/m-upgrade
-openebs/admission-server
-openebs/openebs-k8s-provisioner
-openebs/snapshot-controller
-openebs/snapshot-provisioner
-openebs/velero-plugin
-openebs/provisioner-localpv
 openebs/cstor-csi-driver
 openebs/cvc-operator
 openebs/cspc-operator
 openebs/cstor-volume-manager
 openebs/cstor-pool-manager
 openebs/cstor-webhook
+openebs/velero-plugin
+openebs/m-exporter
+# Jiva images
+openebs/jiva
+openebs/jiva-operator
+openebs/jiva-csi
+openebs/m-exporter
+# Jiva/cStor Upgrade images
 openebs/upgrade
 openebs/migrate
-openebs/jiva-operator

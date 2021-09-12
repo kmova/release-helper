@@ -1,4 +1,5 @@
-# Copyright 2020 The OpenEBS Authors. All rights reserved.
+#!/bin/bash
+# Copyright 2018-2020 The OpenEBS Authors. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,23 +12,20 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
-#List of custom tagged images
-#
-#openebs/jiva:2.12.1
-#openebs/upgrade:2.12.1
-#openebs/migrate:2.12.1
-#openebs/jiva-operator:2.12.1
-openebs/zfs-driver:1.9.1
-openebs/node-disk-manager:1.6.1
-openebs/node-disk-operator:1.6.1
-openebs/node-disk-exporter:1.6.1
-openebs/lvm-driver:0.8.0
-openebs/device-driver:0.5.0
-openebs/rawfile-localpv:0.5.0
-openebs/provisioner-nfs:0.6.2
-openebs/nfs-server-alpine:0.6.2
-#openebs/mayastor:ci
-#openebs/mayastor-csi:ci
-#openebs/moac:ci
-#openebs/monitor-pv:ci
+
+set -e
+
+# architecute on which integration tests need to be run
+ARCH=$1
+
+if [ -z "$ARCH" ]; then
+  echo "platform not specified for running tests. Exiting."
+  exit 1
+fi
+
+# currently integration tests are run only for amd64
+if [ "$ARCH" != "amd64" ]; then
+  exit 0
+fi
+
+go test -v -timeout 20m github.com/openebs/node-disk-manager/integration_tests/sanity

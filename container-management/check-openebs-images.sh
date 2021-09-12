@@ -56,4 +56,14 @@ do
   if [ $? -ne 0 ]; then let "MISSING++"; fi
 done
 
+# check images having fixed tags in docker hub
+LEGACY_TAGGED_LIST=$(cat openebs-legacy-images.txt | grep -v "#" |tr "\n" " ")
+for IMAGE_TAG in $LEGACY_TAGGED_LIST
+do
+  IMAGE=$(echo $IMAGE_TAG | cut -d':' -f 1)
+  TAG=$(echo $IMAGE_TAG | cut -d':' -f 2)
+  ./check-docker-img-tag.sh "${IMAGE}${XC_ARCH}" "${TAG}${RC}"
+  if [ $? -ne 0 ]; then let "MISSING++"; fi
+done
+
 exit $MISSING

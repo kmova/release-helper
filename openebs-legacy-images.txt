@@ -12,22 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-#List of custom tagged images
+# List of OpenEBS Legacy cStor and Jiva provisoiner images
 #
-#openebs/jiva:2.12.1
-#openebs/upgrade:2.12.1
-#openebs/migrate:2.12.1
-#openebs/jiva-operator:2.12.1
-openebs/zfs-driver:1.9.1
-openebs/node-disk-manager:1.6.1
-openebs/node-disk-operator:1.6.1
-openebs/node-disk-exporter:1.6.1
-openebs/lvm-driver:0.8.0
-openebs/device-driver:0.5.0
-openebs/rawfile-localpv:0.5.0
-openebs/provisioner-nfs:0.6.2
-openebs/nfs-server-alpine:0.6.2
-#openebs/mayastor:ci
-#openebs/mayastor-csi:ci
-#openebs/moac:ci
-#openebs/monitor-pv:ci
+openebs/linux-utils:2.12.2
+openebs/cstor-pool:2.12.2
+openebs/cstor-istgt:2.12.2
+openebs/jiva:2.12.2
+openebs/m-apiserver:2.12.2
+openebs/cstor-pool-mgmt:2.12.2
+openebs/cstor-volume-mgmt:2.12.2
+openebs/m-exporter:2.12.2
+openebs/m-upgrade:2.12.2
+openebs/admission-server:2.12.2
+openebs/openebs-k8s-provisioner:2.12.2
+openebs/snapshot-controller:2.12.2
+openebs/snapshot-provisioner:2.12.2
+openebs/velero-plugin:2.12.2
