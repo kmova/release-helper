@@ -66,4 +66,14 @@ do
   if [ $? -ne 0 ]; then let "MISSING++"; fi
 done
 
+# check images having fixed tags in docker hub
+PATCH_TAGGED_LIST=$(cat openebs-custom-patch-tag-images.txt | grep -v "#" |tr "\n" " ")
+for IMAGE_TAG in $PATCH_TAGGED_LIST
+do
+  IMAGE=$(echo $IMAGE_TAG | cut -d':' -f 1)
+  TAG=$(echo $IMAGE_TAG | cut -d':' -f 2)
+  ./check-docker-img-tag.sh "${IMAGE}" "${TAG}"
+  if [ $? -ne 0 ]; then let "MISSING++"; fi
+done
+
 exit $MISSING

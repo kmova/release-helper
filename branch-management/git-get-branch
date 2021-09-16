@@ -46,9 +46,9 @@ response_code=$(curl -u ${GIT_NAME}:${GIT_TOKEN} \
 rc_code=0
 
 if [ $response_code != "200" ]; then
-    echo "Error: Branch $2 on repo $1 not found."
+    echo -e "\xE2\x9D\x8C Error: Branch $2 on repo $1 not found."
 else
-    echo "Found branch $2 exists on $1"
+    echo -e "\xE2\x9C\x94 Success: Found branch $2 exists on $1."
 fi
 
 #delete the temporary response file

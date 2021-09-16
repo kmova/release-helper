@@ -14,9 +14,6 @@
 #
 # List of OpenEBS Repositories with branches
 #
-#api
-#linux-utils
-#node-disk-manager
 cstor
 libcstor
 istgt
@@ -24,21 +21,25 @@ velero-plugin
 cstor-csi
 cstor-operators
 jiva
-maya
 upgrade
 m-exporter
 dynamic-localpv-provisioner
-openebs-k8s-provisioner
 jiva-operator
+#independent-repos
+#node-disk-manager
 #zfs-localpv
 #lvm-localpv
 #device-localpv
 #rawfile-localpv
 #dynamic-nfs-provisioner
-#monitor-pv
 #Mayastor
 #mayastor-control-plane
 #monitoring
 #openebsctl
+#deprecated after v2.12.x
+#maya
+#openebs-k8s-provisioner
+#discontinued
+#monitor-pv
 
 

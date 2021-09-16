@@ -40,6 +40,7 @@ done
 #OpenEBS Release repositories with non-mainstream 
 #branching convention
 ./git-get-branch openebs/linux-utils main
+./git-get-branch openebs/api main
 ./git-get-branch openebs/zfs-localpv develop
 ./git-get-branch openebs/lvm-localpv develop
 ./git-get-branch openebs/node-disk-manager develop
@@ -51,5 +52,7 @@ done
 ./git-get-branch openebs/openebsctl develop
 ./git-get-branch openebs/zfs-localpv v1.9.x
 ./git-get-branch openebs/lvm-localpv v0.8.x
-./git-get-branch openebs/node-disk-manager v1.6.x
-./git-get-branch openebs/dynamic-nfs-provisioner v0.6.x
+./git-get-branch openebs/node-disk-manager v1.7.x
+./git-get-branch openebs/dynamic-nfs-provisioner v0.7.x
+./git-get-branch openebs/openebs-k8s-provisioner v2.12.x
+./git-get-branch openebs/maya v2.12.x
