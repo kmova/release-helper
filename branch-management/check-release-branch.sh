@@ -16,15 +16,22 @@
 
 usage()
 {
-	echo "Usage: $0 <release branch>"
+	echo "Usage: $0 [release branch]"
+	echo "  Displays the presense of the provided release branch."
+	echo "  Default - checks for branch named develop."
 	exit 1
 }
 
-if [ $# -ne 1 ]; then
+if [ $# -gt 1 ]; then
 	usage
 fi
 
-REL_BRANCH=$1
+if [ $# -ne 1 ]; then
+	REL_BRANCH="develop"
+else
+	REL_BRANCH=$1
+fi
+
 
 REPO_LIST=$(cat  openebs-repos.txt | grep -v "#" |tr "\n" " ")
 
@@ -40,7 +47,7 @@ done
 #OpenEBS Release repositories with non-mainstream 
 #branching convention
 ./git-get-branch openebs/linux-utils main
-./git-get-branch openebs/api main
+./git-get-branch openebs/api develop
 ./git-get-branch openebs/zfs-localpv develop
 ./git-get-branch openebs/lvm-localpv develop
 ./git-get-branch openebs/node-disk-manager develop
