@@ -62,7 +62,7 @@ for IMAGE_TAG in $LEGACY_TAGGED_LIST
 do
   IMAGE=$(echo $IMAGE_TAG | cut -d':' -f 1)
   TAG=$(echo $IMAGE_TAG | cut -d':' -f 2)
-  ./check-docker-img-tag.sh "${IMAGE}${XC_ARCH}" "${TAG}${RC}"
+  ./check-docker-img-tag.sh "${IMAGE}${XC_ARCH}" "${TAG}"
   if [ $? -ne 0 ]; then let "MISSING++"; fi
 done
 
