@@ -63,8 +63,8 @@ change_log()
   git pull
   git checkout $2
   git pull
-  git log --pretty=format:'-TPL- %s %cs (%h) (@%an)' --date=short  --since="15 jun 2021"  >> ../../${CHANGE_LOG_REPO}
-  git log --pretty=format:'(@%an)' --date=short  --since="15 jun 2021"  >> ../../${COMMITTER_LOG}
+  git log --pretty=format:'-TPL- %s %cs (%h) (@%an)' --date=short  --since="15 jul 2021"  >> ../../${CHANGE_LOG_REPO}
+  git log --pretty=format:'(@%an)' --date=short  --since="15 jul 2021"  >> ../../${COMMITTER_LOG}
   cd ../..
   sed -i '' -e "s/-TPL-/- [$1] /g" ${CHANGE_LOG_REPO}
   cat ${CHANGE_LOG_REPO} | sort  >> ${CHANGE_LOG}
@@ -87,25 +87,31 @@ done
 
 #OpenEBS Release repositories with non-mainstream 
 #branching convention
-change_log linux-utils master
-change_log node-disk-manager v1.6.x
+change_log linux-utils main
+change_log maya v2.12.x
+change_log openebs-k8s-provisioner v2.12.x
+change_log node-disk-manager v1.7.x
 change_log zfs-localpv v1.9.x
-change_log lvm-localpv v0.7.x
-change_log dynamic-nfs-provisioner develop
+change_log lvm-localpv v0.8.x
+change_log dynamic-nfs-provisioner v0.7.x
 change_log device-localpv develop
 change_log e2e-tests master
-change_log openebs-docs master
-change_log openebs master
-change_log monitor-pv master
-change_log Mayastor develop
+change_log openebs main
 change_log monitoring develop
 change_log openebsctl develop
 change_log rawfile-localpv master
-change_log charts master
+change_log charts main
 change_log charts gh-pages
-change_log website refactor-to-ghost-and-gatsby
-change_log website revamp-3.0
-change_log performance-benchmark master
+#change_log website main
+#change_log mayastor develop
+#change_log mayastor-control-plane develop
+#change_log mayastor-api develop
+change_log api develop
+change_log helm-operator master
+#change_log openebs-docs master
+#change_log monitor-pv master
+#change_log website revamp-3.0
+#change_log performance-benchmark master
 
 
 committer_map()
@@ -113,6 +119,7 @@ committer_map()
   FILE=$1
 
   #Maintainers
+  sed -i '' -e 's/@Amit Kumar Das/@kmova/g' ${FILE}
   sed -i '' -e 's/@Kiran Mova/@kmova/g' ${FILE}
   sed -i '' -e 's/@Vishnu Itta/@vishnuitta/g' ${FILE}
   sed -i '' -e 's/@Jeffry Molanus/@gila/g' ${FILE}
@@ -122,9 +129,15 @@ committer_map()
   sed -i '' -e 's/@MIℂHΛΞL FѲRИΛRѲ/@xUnholy/g' ${FILE}
   sed -i '' -e 's/@Peeyush Gupta/@Pensu/g' ${FILE}
 
+
   #Reviewers
+  sed -i '' -e 's/@Abhishek Agarwal/@Ab-hishek/g' ${FILE}
+  sed -i '' -e 's/@Abhinandan Purkait/@Abhinandan-Purkait/g' ${FILE}
+  sed -i '' -e 's/@Amrish Kushwaha/@IsAmrish/g' ${FILE}
+  sed -i '' -e 's/@isamrish/@IsAmrish/g' ${FILE}
   sed -i '' -e 's/@mayank/@mynktl/g' ${FILE}
   sed -i '' -e 's/@Mayank/@mynktl/g' ${FILE}
+  sed -i '' -e 's/@Harsh Thakur/@harshthakur9030/g' ${FILE} 
   sed -i '' -e 's/@sai chaithanya/@mittachaitu/g' ${FILE}
   sed -i '' -e 's/@Payes Anand/@payes/g' ${FILE}
   sed -i '' -e 's/@Utkarsh Mani Tripathi/@utkarshmani1997/g' ${FILE}
@@ -137,8 +150,6 @@ committer_map()
   sed -i '' -e 's/@Akhil Mohan/@akhilerm/g' ${FILE}
   sed -i '' -e 's/@Aman Gupta/@w3aman/g' ${FILE}
   sed -i '' -e 's/@Filippo Bosi/@filippobosi/g' ${FILE}
-  sed -i '' -e 's/@Amrish Kushwaha/@IsAmrish/g' ${FILE}
-  sed -i '' -e 's/@isamrish/@IsAmrish/g' ${FILE}
   sed -i '' -e 's/@giri/@gprasath/g' ${FILE}
   sed -i '' -e 's/@Ranjith R/@ranjithwingrider/g' ${FILE}
   sed -i '' -e 's/@Somesh Kumar/@somesh2905/g' ${FILE}
@@ -163,12 +174,33 @@ committer_map()
   sed -i '' -e 's/@nareshdesh/@nareshdesh/g' ${FILE}
   sed -i '' -e 's/@mahao/@allenhaozi/g' ${FILE}
   sed -i '' -e 's/@praveengt/@praveengt/g' ${FILE}
+  sed -i '' -e 's/@Aditya Jain/@Z0Marlin/g' ${FILE}
+  sed -i '' -e 's/@Vishnu Attur/@avishnu/g' ${FILE}
+  sed -i '' -e 's/@anupriya0703/@anupriya0703/g' ${FILE}
+  sed -i '' -e 's/@Niladri Halder/@niladrih/g' ${FILE}
+  sed -i '' -e 's/@Yashpal/@iyashu/g' ${FILE}
+  sed -i '' -e 's/@iyashu Choudhary/@iyashu/g' ${FILE}
+  sed -i '' -e 's/@Anupriya Gupta/@anupriya0703/g' ${FILE}
+  sed -i '' -e 's/@Harsh Vardhan/@vharsh/g' ${FILE}
+  sed -i '' -e 's/@Sahil Raja/@rajaSahil/g' ${FILE}
+  sed -i '' -e 's/@satyapriyamishra222/@satyapriyamishra222/g' ${FILE}
+  sed -i '' -e 's/@Satyapriya Mishra/@satyapriyamishra222/g' ${FILE}
+  sed -i '' -e 's/@Shovan Maity/@shovanmaity/g' ${FILE}
+  sed -i '' -e 's/@Sjors Gielen/@sgielen/g' ${FILE}
+  sed -i '' -e 's/@Rakesh Raghu/@rakeshPRaghu/g' ${FILE}
+  sed -i '' -e 's/@Pallavi-PH/@Pallavi-PH/g' ${FILE}
+  sed -i '' -e 's/@Rakesh PR/@rakeshPRaghu/g' ${FILE}
+  sed -i '' -e 's/@Aamir Shaikh/@aamirqs/g' ${FILE}
+  sed -i '' -e 's/@Dmitry Savitskiy/@dsavitskiy/g' ${FILE}
+  sed -i '' -e 's/@Zeeshan Ali/@zeenix/g' ${FILE}
 
   #Contributors -  Community Bridge
-  sed -i '' -e 's/@Harsh Thakur/@harshthakur9030/g' ${FILE} 
-  sed -i '' -e 's/@vaniisgh/@vaniisgh/g' ${FILE}
+  sed -i '' -e 's/@Abhishek Kumar/@Abhishek-kumar09/g' ${FILE}
+  sed -i '' -e 's/@Almas Ahmad/@almas33/g' ${FILE}
+  sed -i '' -e 's/@Nivedita Prasad/@Nivedita-coder/g' ${FILE}
   sed -i '' -e 's/@Parth Shandilya/@ParthS007/g' ${FILE}
   sed -i '' -e 's/@Rahul Agrawal/@rahul799/g' ${FILE}
+  sed -i '' -e 's/@vaniisgh/@vaniisgh/g' ${FILE}
 
   #Contributors - via CNCF BugBash 2021
   sed -i '' -e 's/@Atibhi Agrawal/@asquare14/g' ${FILE}
@@ -220,9 +252,10 @@ committer_map()
   sed -i '' -e 's/@Anand prabhakar/@anandprabhakar0507/g' ${FILE}
 
   #Contributors -  Community
+  sed -i '' -e 's/@AVRahul/@AVRahul/g' ${FILE}
+  sed -i '' -e 's/@A V RAHUL/@AVRahul/g' ${FILE}
   sed -i '' -e 's/@Sumit Lalwani/@slalwani97/g' ${FILE}
   sed -i '' -e 's/@Christopher J. Ruwe/@cruwe/g' ${FILE}
-  sed -i '' -e 's/@Sjors Gielen/@sgielen/g' ${FILE}
   sed -i '' -e 's/@Shubham Bhardwaj/@ShubhamB99/g' ${FILE}
   sed -i '' -e 's/@GTB3NW/@GTB3NW/g' ${FILE}
   sed -i '' -e 's/@fukuta-tatsuya-intec/@fukuta-tatsuya-intec/g' ${FILE}
@@ -243,13 +276,11 @@ committer_map()
   sed -i '' -e 's/@Waqar Ahmed/@sonicaj/g' ${FILE}
   sed -i '' -e 's/@Akın Özer/@akin-ozer/g' ${FILE}
   sed -i '' -e 's/@Alex Perez-Pujol/@alexppg/g' ${FILE}
-  sed -i '' -e 's/@anupriya0703/@anupriya0703/g' ${FILE}
   sed -i '' -e 's/@Ben Hundley/@FestivalBobcats/g' ${FILE}
   sed -i '' -e 's/@Daniel Sand/@danielsand/g' ${FILE}
   sed -i '' -e 's/@Ondrej Beluský/@zlymeda/g' ${FILE}
   sed -i '' -e 's/@Ondrej Belusky/@zlymeda/g' ${FILE}
   sed -i '' -e 's/@Aditya Vats/@avats-dev/g' ${FILE}
-  sed -i '' -e 's/@Niladri Halder/@niladrih/g' ${FILE}
   sed -i '' -e 's/@hack3r-0m/@hack3r-0m/g' ${FILE}
   sed -i '' -e 's/@Eugenio A. Naselli/@shock0572/g' ${FILE}
   sed -i '' -e 's/@Mateusz Gozdek/@invidian/g' ${FILE}
@@ -260,14 +291,11 @@ committer_map()
   sed -i '' -e 's/@Sebastien Dionne/@survivant/g' ${FILE}
   sed -i '' -e 's/@ajeet_rai/@ajeet_rai/g' ${FILE}
   sed -i '' -e 's/@kaushikp13/@kaushikp13/g' ${FILE}
-  sed -i '' -e 's/@Aditya Jain/@Z0Marlin/g' ${FILE}
-  sed -i '' -e 's/@Yashpal/@iyashu/g' ${FILE}
   sed -i '' -e 's/@Luiz Carlos Faria/@luizcarlosfaria/g' ${FILE}
   #sed -i '' -e 's/@Hanieh Marvi/@Hanieh Marvi/g' ${FILE}
   sed -i '' -e 's/@Rahul krishnan R A/@rahulkrishnanfs/g' ${FILE}
   sed -i '' -e 's/@Rahulkrishnan R A/@rahulkrishnanfs/g' ${FILE}
   sed -i '' -e 's/@Mike Terhar/@mterhar/g' ${FILE}
-  sed -i '' -e 's/@Abhishek Agarwal/@Ab-hishek/g' ${FILE}
   sed -i '' -e 's/@Abhranil Chatterjee/@abhranilc/g' ${FILE}
   sed -i '' -e 's/@Armel Soro/@rm3l/g' ${FILE}
   sed -i '' -e 's/@knutole/@knutole/g' ${FILE}
@@ -275,27 +303,21 @@ committer_map()
   sed -i '' -e 's/@cospotato/@cospotato/g' ${FILE}
   sed -i '' -e 's/@Simon Smith/@si458/g' ${FILE}
   sed -i '' -e 's/@James Pedersen/@watcher00090/g' ${FILE}
-  sed -i '' -e 's/@iyashu Choudhary/@iyashu/g' ${FILE}
-  sed -i '' -e 's/@Abhinandan Purkait/@Abhinandan-Purkait/g' ${FILE}
-  sed -i '' -e 's/@Anupriya Gupta/@anupriya0703/g' ${FILE}
-  sed -i '' -e 's/@Harsh Vardhan/@vharsh/g' ${FILE}
-  sed -i '' -e 's/@Sahil Raja/@rajaSahil/g' ${FILE}
-  sed -i '' -e 's/@satyapriyamishra222/@satyapriyamishra222/g' ${FILE}
   sed -i '' -e 's/@Ashish Jain/@is-ashish/g' ${FILE}
-  sed -i '' -e 's/@AVRahul/@AVRahul/g' ${FILE}
-  sed -i '' -e 's/@A V RAHUL/@AVRahul/g' ${FILE}
   sed -i '' -e 's/@Atharex/@Atharex/g' ${FILE}
-  sed -i '' -e 's/@Pallavi/@Pallavi-PH/g' ${FILE}
-  sed -i '' -e 's/@Rakesh PR/@rakeshPRaghu/g' ${FILE}
-  sed -i '' -e 's/@Rakesh Raghu/@rakeshPRaghu/g' ${FILE}
   sed -i '' -e 's/@Sanjay Nathani/@Sanjay1611/g' ${FILE}
-  sed -i '' -e 's/@Satyapriya Mishra/@satyapriyamishra222/g' ${FILE}
-  sed -i '' -e 's/@Shovan Maity/@shovanmaity/g' ${FILE}
-  sed -i '' -e 's/@Suraj Deshmukh/@surajssd/g' ${FILE}
   sed -i '' -e 's/@Roland/@RolandMa1986/g' ${FILE}
   sed -i '' -e 's/@Josh Cox/@joshuacox/g' ${FILE}
   sed -i '' -e 's/@Hugo Renard/@hrenard/g' ${FILE}
-  sed -i '' -e 's/@Vishnu Attur/@avishnu/g' ${FILE}
+  sed -i '' -e 's/@Suraj Deshmukh/@surajssd/g' ${FILE}
+  sed -i '' -e 's/@Aadhav Vignesh/@burntcarrot/g' ${FILE}
+  sed -i '' -e 's/@Amisha Kumari/@Amishakumari544/g' ${FILE}
+  sed -i '' -e 's/@Eric Ripa/@eripa/g' ${FILE}
+  sed -i '' -e 's/@Feng Ye/@fengye87/g' ${FILE}
+  sed -i '' -e 's/@Omeir Fawaz/@omeiirr/g' ${FILE}
+  sed -i '' -e 's/@Rodrigo Weilg/@rweilg/g' ${FILE}
+  sed -i '' -e 's/@Stéphane Bidoul/@Quarky9/g' ${FILE}
+  sed -i '' -e 's/@liuminjian/@liuminjian/g' ${FILE}
 
   FILE=""
 }
