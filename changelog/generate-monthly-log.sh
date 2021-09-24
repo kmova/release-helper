@@ -102,10 +102,10 @@ change_log openebsctl develop
 change_log rawfile-localpv master
 change_log charts main
 change_log charts gh-pages
-#change_log website main
-#change_log mayastor develop
-#change_log mayastor-control-plane develop
-#change_log mayastor-api develop
+change_log website main
+change_log mayastor develop
+change_log mayastor-control-plane develop
+change_log mayastor-api develop
 change_log api develop
 change_log helm-operator master
 #change_log openebs-docs master
