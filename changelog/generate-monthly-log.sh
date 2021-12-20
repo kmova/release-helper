@@ -63,8 +63,8 @@ change_log()
   git pull
   git checkout $2
   git pull
-  git log --pretty=format:'-TPL- %s %cs (%h) (@%an)' --date=short  --since="15 jul 2021"  >> ../../${CHANGE_LOG_REPO}
-  git log --pretty=format:'(@%an)' --date=short  --since="15 jul 2021"  >> ../../${COMMITTER_LOG}
+  git log --pretty=format:'-TPL- %s %cs (%h) (@%an)' --date=short  --since="15 sep 2021"  >> ../../${CHANGE_LOG_REPO}
+  git log --pretty=format:'(@%an)' --date=short  --since="15 sep 2021"  >> ../../${COMMITTER_LOG}
   cd ../..
   sed -i '' -e "s/-TPL-/- [$1] /g" ${CHANGE_LOG_REPO}
   cat ${CHANGE_LOG_REPO} | sort  >> ${CHANGE_LOG}
@@ -90,16 +90,14 @@ done
 change_log linux-utils main
 change_log maya v2.12.x
 change_log openebs-k8s-provisioner v2.12.x
-change_log node-disk-manager v1.7.x
-change_log zfs-localpv v1.9.x
+change_log node-disk-manager v1.8.x
+change_log zfs-localpv v2.0.x
 change_log lvm-localpv v0.8.x
-change_log dynamic-nfs-provisioner v0.7.x
+change_log dynamic-nfs-provisioner v0.8.x
 change_log device-localpv develop
-change_log e2e-tests master
 change_log openebs main
 change_log monitoring develop
 change_log openebsctl develop
-change_log rawfile-localpv master
 change_log charts main
 change_log charts gh-pages
 change_log website main
@@ -107,7 +105,10 @@ change_log mayastor develop
 change_log mayastor-control-plane develop
 change_log mayastor-api develop
 change_log api develop
+change_log rawfile-localpv master
+#change_log sts-pv-pvc-handler develop
 change_log helm-operator master
+change_log e2e-tests master
 #change_log openebs-docs master
 #change_log monitor-pv master
 #change_log website revamp-3.0

@@ -12,13 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-#List of images with custom patch release
-openebs/zfs-driver:1.9.3
+#List of images with custom patch release (without RC tags)
+#openebs/zfs-driver:2.0.0
 #openebs/node-disk-manager:1.6.1
 #openebs/node-disk-operator:1.6.1
 #openebs/node-disk-exporter:1.6.1
-openebs/lvm-driver:0.8.2
+openebs/lvm-driver:0.8.3
 openebs/device-driver:0.5.1
-openebs/rawfile-localpv:0.5.0
-openebs/provisioner-nfs:0.7.1
-openebs/nfs-server-alpine:0.7.1
+openebs/rawfile-localpv:0.7.0
+openebs/provisioner-nfs:0.8.0
+openebs/nfs-server-alpine:0.8.0

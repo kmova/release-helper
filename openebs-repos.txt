@@ -36,10 +36,11 @@ jiva-operator
 #mayastor-control-plane
 #monitoring
 #openebsctl
-#deprecated after v2.12.x
+#sts-pv-pvc-handler
+#monitor-pv
+#deprecated repos
 #maya
 #openebs-k8s-provisioner
-#discontinued
-#monitor-pv
+#openebs-docs
 
 
